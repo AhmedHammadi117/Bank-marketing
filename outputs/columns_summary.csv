@@ -1,0 +1,22 @@
+col,dtype,utilité,importance,remarque
+age,int,Distribution des âges,Forte,Vérifier présence d’âges extrêmes
+job,cat,Répartition par profession,Moyenne à forte,Encodage catégoriel nécessaire
+marital,cat,"Statut marital, analyse socio-démographique",Moyenne,Regrouper éventuellement en couples / célibataires
+education,cat,Niveau d’éducation des clients,Moyenne,"Harmoniser les libellés, gérer les “unknown”"
+default,cat,Historique de défaut de paiement,Forte,Traiter valeurs inconnues (“unknown”)
+housing,cat,Possession d’un crédit immobilier,Moyenne,Encodage nécessaire
+loan,cat,Possession d’un prêt personnel,Moyenne,Encodage nécessaire
+contact,cat,Canal de communication,Faible à moyenne,Peut aider à comprendre efficacité des campagnes
+month,cat,Mois du dernier contact,Faible à moyenne,Encodage cyclique possible pour capturer saisonnalité
+day_of_week,cat,Jour de la semaine du dernier contact,Faible à moyenne,Encodage cyclique possible
+duration,int,Durée du dernier contact (en secondes),Très forte,Attention : fuite de donnée possible si utilisé tel quel
+campaign,int,Nombre de contacts lors de la campagne,Moyenne,Vérifier valeurs extrêmes
+pdays,int,Jours depuis le dernier contact précédent,Moyenne,"999 indique “pas de contact précédent”, à gérer"
+previous,int,Nombre de contacts antérieurs,Moyenne,Utile pour le comportement client
+poutcome,cat,Résultat de la campagne précédente,Forte,"Catégorie clé (“success”, “failure”, “other”)"
+emp.var.rate,float,Taux de variation de l’emploi,Faible à moyenne,"Macro-économie, influence possible sur souscription"
+cons.price.idx,float,Indice des prix à la consommation,Faible à moyenne,Macro-économie
+cons.conf.idx,float,Indice de confiance des consommateurs,Faible à moyenne,Macro-économie
+euribor3m,float,Taux Euribor 3 mois,Moyenne,Influence les décisions financières
+nr.employed,float,Nombre d’employés,Faible à moyenne,"Macro-économie, tendance générale"
+y,cat,Variable cible : souscription oui/non,Très forte,"À prédire, encoder “yes”=1 / “no”=0"
