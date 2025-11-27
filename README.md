@@ -1,221 +1,180 @@
-1. Introduction
-🎯 Contexte
+1. Objectif du projet
 
-Les banques mènent régulièrement des campagnes marketing pour proposer des produits financiers (dépôts à terme, assurances, prêts…).
-Ces campagnes sont coûteuses, nécessitent du personnel et engagent la réputation de l’établissement.
+Ce repository correspond au Sous-Projet A d’un ensemble de trois projets autour d’un cas réel de marketing bancaire (prédiction de conversion client).
 
-🎯 Objectif du projet
+Objectif de ce repo :
+Nettoyer, analyser et transformer les données brutes pour produire un dataset propre, exploitable par des modèles de Machine Learning.
 
-L’objectif est de construire un modèle prédictif capable d’estimer si un client acceptera une offre lors d’une campagne téléphonique.
+Ce travail représente ce qu’effectuerait un Data Engineer / Data Scientist junior dans une entreprise :
 
-🎯 Valeur ajoutée
+lecture robuste des données
 
-Réduction des coûts marketing
+nettoyage & standardisation
 
-Ciblage plus intelligent
+création de features utiles
 
-Meilleure allocation des ressources
+documentation claire des variables
 
-Amélioration du taux de conversion
+export de jeux de données segmentés
 
-Tests de scénarios (who to call next?)
+Ce repository est entièrement autonome, mais il est utilisé comme base pour les repos suivants.
 
-2. Questions Clés Explorées
+2. Structure du repository
 
-Quels types de clients sont les plus susceptibles d’accepter une offre ?
+repo-1-data-features/
+│
+├── data/
+│ └── bank-additional-full.csv
+│
+├── notebooks/
+│ └── 01_data_features.ipynb
+│
+├── outputs/
+│ ├── up_data.csv
+│ ├── profil_cols.csv
+│ ├── campagne_cols.csv
+│ ├── macro_cols.csv
+│ ├── columns_summary.csv
+│ └── README_outputs.md
+│
+├── src/
+│ └── features.py
+│
+├── tests/
+│ └── test_features.py
+│
+├── requirements.txt
+└── README.md
 
-Quelles variables influencent le plus la décision (âge, profession, historique marketing, conditions économiques…) ?
+3. Données utilisées
 
-Peut-on prédire le succès d’une campagne avant son lancement ?
+Les données proviennent du dataset Bank Marketing de l’UCI.
 
-Quels modèles sont les plus efficaces dans ce contexte ?
+Chaque ligne représente un contact avec un client.
+La variable cible :
 
-Comment éviter les fuites de données (ex: variable duration) ?
+yes = le client a souscrit
 
-Quel seuil de décision maximise le rendement d’une campagne ?
+no = le client n’a pas souscrit
 
-3. Dataset
-📌 Source
+Dataset : 41 188 lignes et 21 variables.
 
-Dataset “Bank Marketing Campaigns” (UCI / Kaggle)
+4. Étapes principales du notebook
+Chargement robuste
 
-📌 Taille
+Gestion automatique du séparateur
 
-~40 000 lignes
-21 variables explicatives
-1 variable cible (y = yes/no)
+Ajout d’un identifiant unique (id)
 
-📌 Structure
+Inspection (info, describe, head)
 
-Variables client : age, job, marital, education…
+Nettoyage
 
-Variables financières : housing, loan, default
+Remplacement des valeurs “unknown” et “nonexistent” par NaN
 
-Variables liées à la campagne : month, day_of_week, campaign, previous…
+Correction des valeurs extrêmes
 
-Variables macro-économiques : euribor3m, cons.price.idx, emp.var.rate…
+Vérification des catégories
 
-📌 Prétraitement effectué (dans le notebook)
+Segmentation des colonnes
 
-Nettoyage du CSV
+profil client (age, job, marital…)
 
-Correction de types
+campagne marketing (duration, contact, campaign…)
 
-Gestion valeurs “unknown”
+macroéconomie (euribor, cons.conf.idx, etc.)
 
-Analyse et suppression des colonnes problématiques
+Feature Engineering
 
-Transformation “pdays_clean” & création features cohérentes
+Création d’un âge catégorisé
 
-Regroupement des professions (feature engineering)
+Log-transform sur duration
 
-Création de variables dérivées : saison, nombre de tentatives, indicateurs économiques…
+Gestion intelligente de pdays
 
-4. Méthodologie (alignée avec ton notebook + pipeline futur)
-4.1 Data Cleaning
+Mois → numéro → trimestre → saison
 
-Suppression doublons
+Encodage ordinal éducation
 
-Correction types
+Variable cible binaire (y_bin)
 
-Traitement valeurs “unknown”
+Feature interaction (young_short_call)
 
-Nettoyage de la colonne pdays
+Export final
 
-Inspection des distributions
+Dataset enrichi : up_data.csv
 
-Vérification fuite de données
+Exports segmentés
 
-4.2 Feature Engineering
+Table de documentation des colonnes
 
-(déjà présent dans ton notebook → je me baserai dessus)
+5. Installation et exécution
 
-Regroupement des professions
+Cloner le repo
+git clone https://github.com/TON_COMPTE/repo-1-data-features.git
 
-Catégorisation âge
+cd repo-1-data-features
 
-Transformation saisonnière
+Installer les dépendances
+pip install -r requirements.txt
 
-Agrégation des variables macro
+Lancer le notebook
+jupyter notebook notebooks/01_data_features.ipynb
 
-Variable “is_new_contact”
+6. Exportations produites
 
-Variable “pressure_marketing” (nombre d’appels cumulés)
+up_data.csv : dataset final enrichi
+profil_cols.csv : caractéristiques clients
+campagne_cols.csv : données campagne et interactions
+macro_cols.csv : variables macro
+columns_summary.csv : documentation automatique des colonnes
 
-4.3 Exploration & Visualisation
+Un fichier README_outputs.md dans /outputs décrit chaque fichier.
 
-Déjà présente dans ton code :
+7. Tests unitaires
 
-Distributions des profils client
+Les fonctions de preprocessing sont dans src/features.py.
 
-Analyse taux d’acceptation par âge, métier, mois, etc.
+Lancer les tests :
+pytest tests/test_features.py
 
-Heatmaps macro-économie / acceptation
+8. Relation avec les autres repositories
 
-Visualisation campagne & pression marketing
+Repo 1 – Data & Features (ce repo)
+→ Préparation des données
 
-4.4 Modélisation (à venir dans la suite du notebook)
+Repo 2 – Modeling
+→ Modèles, comparatif, SHAP, optimisation
 
-Construction d’un pipeline preprocessing
+Repo 3 – Production
+→ API FastAPI, Dashboard Streamlit/Power BI
 
-Split train/val/test stratifié
+9. Compétences démontrées
 
-Modèle baseline : Logistic Regression
+Ce repo montre une vraie compétence professionnelle :
 
-Modèles avancés : RandomForest, XGBoost, SVM
+architecture projet propre
 
-Cross-validation
+pipeline clair
 
-Optimisation hyperparamètres
+FE structuré
 
-Calibration des probabilités
+documentation automatique
 
-Optimisation du seuil de décision
+tests unitaires
 
-4.5 Évaluation
+exports standardisés
 
-Accuracy
+maîtrise Python et Git
 
-Precision / Recall
+10. Prochaines étapes
 
-F1-score
+Repo 2 – Modeling utilisera :
 
-AUC-ROC
+up_data.csv
 
-Courbes PR
+profil_cols.csv
 
-Matrice de confusion
+campagne_cols.csv
 
-Gains business selon différents seuils
-
-5. Résultats attendus / obtenus
-
-Comparaison claire des modèles
-
-Identification des features influentes (SHAP, importance)
-
-Détection fuites (duration → exclue du modèle final)
-
-Courbes ROC & PR
-
-Dashboard de visualisation des résultats
-
-Recommandations pour entreprise :
-
-Quels clients prioriser
-
-Quand appeler
-
-Quel canal privilégier
-
-Quel budget attendre
-
-6. Ingénierie & Déploiement
-
-(version professionnelle pour un dossier d’alternance)
-
-6.1 Pipeline ML
-
-Du brut → features → modèle → prédiction
-
-6.2 Industrialisation
-
-Scripts train.py et predict.py
-
-Sauvegarde du modèle en .joblib
-
-Chargement automatique des données
-
-Tests unitaires simples
-
-6.3 Déploiement
-
-API FastAPI / Flask
-
-Dashboard Streamlit pour tester la prédiction en live
-
-Conteneurisation Docker (optionnel)
-
-7. Conclusion & Perspectives
-
-Résumé des résultats
-
-Impact potentiel pour une banque réelle
-
-Recommandations stratégiques
-
-Améliorations futures :
-
-Ajouter des données externes (inflation, taux de chômage)
-
-Modèles séquentiels (RNN) pour séries temporelles
-
-Apprentissage actif pour améliorer ciblage en continu
-
-Détection de drift en production
-
-8. Documentation des Variables
-
-👉 Je garde la structure que tu as écrite
-👉 MAIS je l’améliore, corrige, et j’adapte au style pro
-👉 Et j’ajoute un tag : Analyse / Prédiction / Notes
+macro_cols.csv
