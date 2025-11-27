@@ -19,34 +19,7 @@ export de jeux de données segmentés
 
 Ce repository est entièrement autonome, mais il est utilisé comme base pour les repos suivants.
 
-2. Structure du repository
-
-repo-1-data-features/
-│
-├── data/
-│ └── bank-additional-full.csv
-│
-├── notebooks/
-│ └── 01_data_features.ipynb
-│
-├── outputs/
-│ ├── up_data.csv
-│ ├── profil_cols.csv
-│ ├── campagne_cols.csv
-│ ├── macro_cols.csv
-│ ├── columns_summary.csv
-│ └── README_outputs.md
-│
-├── src/
-│ └── features.py
-│
-├── tests/
-│ └── test_features.py
-│
-├── requirements.txt
-└── README.md
-
-3. Données utilisées
+2. Données utilisées
 
 Les données proviennent du dataset Bank Marketing de l’UCI.
 
@@ -59,7 +32,7 @@ no = le client n’a pas souscrit
 
 Dataset : 41 188 lignes et 21 variables.
 
-4. Étapes principales du notebook
+3. Étapes principales du notebook
 Chargement robuste
 
 Gestion automatique du séparateur
@@ -108,37 +81,20 @@ Exports segmentés
 
 Table de documentation des colonnes
 
-5. Installation et exécution
 
-Cloner le repo
-git clone https://github.com/TON_COMPTE/repo-1-data-features.git
+4. Exploration & Visualisation
+Cette section du projet a pour objectif de mieux comprendre le besoin métier et les caractéristiques des clients. Elle inclut :
+    up_data.csv : dataset final enrichi
+    profil_cols.csv : caractéristiques clients
+    campagne_cols.csv : données campagne et interactions
+    macro_cols.csv : variables macro
+    columns_summary.csv : documentation automatique des colonnes
+    Une exploration des données clés : profils clients, campagnes marketing, variables macroéconomiques.
+    Des visualisations simples mais informatives, telles que le taux de conversion par tranche d’âge ou par type de contact.
+    L’export automatique des graphiques dans le dossier outputs/ pour un accès rapide et une documentation propre.
+Ces analyses permettent de mettre en évidence des tendances et insights utiles pour le développement des modèles prédictifs et la prise de décision métier
 
-cd repo-1-data-features
-
-Installer les dépendances
-pip install -r requirements.txt
-
-Lancer le notebook
-jupyter notebook notebooks/01_data_features.ipynb
-
-6. Exportations produites
-
-up_data.csv : dataset final enrichi
-profil_cols.csv : caractéristiques clients
-campagne_cols.csv : données campagne et interactions
-macro_cols.csv : variables macro
-columns_summary.csv : documentation automatique des colonnes
-
-Un fichier README_outputs.md dans /outputs décrit chaque fichier.
-
-7. Tests unitaires
-
-Les fonctions de preprocessing sont dans src/features.py.
-
-Lancer les tests :
-pytest tests/test_features.py
-
-8. Relation avec les autres repositories
+5. Relation avec les autres repositories
 
 Repo 1 – Data & Features (ce repo)
 → Préparation des données
@@ -149,7 +105,7 @@ Repo 2 – Modeling
 Repo 3 – Production
 → API FastAPI, Dashboard Streamlit/Power BI
 
-9. Compétences démontrées
+6. Compétences démontrées
 
 Ce repo montre une vraie compétence professionnelle :
 
@@ -167,7 +123,7 @@ exports standardisés
 
 maîtrise Python et Git
 
-10. Prochaines étapes
+7. Prochaines étapes
 
 Repo 2 – Modeling utilisera :
 
