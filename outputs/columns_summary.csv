@@ -1,0 +1,22 @@
+col,dtype,utilité,importance
+age,int,Âge du client,Forte
+job,cat,Profession,Moyenne à forte
+marital,cat,Statut marital,Moyenne
+education,cat,Niveau éducation,Moyenne
+default,cat,Historique défaut paiement,Forte
+housing,cat,Crédit immobilier,Moyenne
+loan,cat,Prêt personnel,Moyenne
+contact,cat,Canal de communication,Faible à moyenne
+month,cat,Mois du contact,Faible à moyenne
+day_of_week,cat,Jour de la semaine,Faible à moyenne
+duration,int,Durée appel (sec),Très forte (fuite ?)
+campaign,int,Nombre contacts campagne,Moyenne
+pdays,int,Jours depuis dernier contact,Moyenne
+previous,int,Nombre contacts antérieurs,Moyenne
+poutcome,cat,Résultat campagne précédente,Forte
+emp.var.rate,float,Taux variation emploi,Macro
+cons.price.idx,float,Indice prix consommation,Macro
+cons.conf.idx,float,Indice confiance consommateurs,Macro
+euribor3m,float,Taux Euribor 3m,Macro
+nr.employed,float,Nombre employés,Macro
+y,cat,CIBLE: Souscription oui/non,Très forte
