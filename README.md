@@ -1,16 +1,27 @@
 
 
 
-# Projet Data Science bancaire — Pipeline simple, clair et évolutif
+# Projet Data Science bancaire — Prédiction de l’acceptation d’une offre
 
-Ce projet a été conçu pour illustrer une démarche complète de data scientist sur un jeu de données bancaire réel et volumineux. L’objectif n’est pas d’obtenir le meilleur score, mais de montrer une compréhension globale du métier, la capacité à structurer un projet, et à rendre chaque étape reproductible et compréhensible.
+Ce projet présente une démarche complète de data science appliquée à un jeu de données bancaire réel et volumineux.
+L’objectif principal est de prédire si un client acceptera ou non une offre bancaire, à partir de ses caractéristiques socio-démographiques et comportementales.
+Le projet met l’accent sur la structuration du pipeline, la reproductibilité et la clarté des choix analytiques, plutôt que sur l’optimisation extrême des performances.
 
-## Points forts du projet
+## Objectifs du projet
 
-- **Clarté et pédagogie** : chaque étape (exploration, nettoyage, feature engineering, modélisation) est explicitée et justifiée dans le notebook, puis automatisée dans des scripts.
-- **Reproductibilité** : tout le pipeline est scripté, du nettoyage à la modélisation, pour garantir que les résultats sont cohérents et faciles à rejouer.
-- **Simplicité assumée** : le projet reste volontairement simple et lisible, pour servir de base un premier projet professionnel.
-- **Adaptabilité** : la structure permet d’aller plus loin facilement (ajout de modèles, tuning, pipeline production, etc.).
+- Prédire l’acceptation d’une offre bancaire (problème de classification binaire).
+- Analyser et comprendre les facteurs influençant la décision des clients.
+- Mettre en place un pipeline clair de prétraitement et de modélisation.
+- Séparer l’analyse exploratoire de l’automatisation.
+- Garantir des résultats reproductibles et explicables.
+
+## Points clés
+
+- Approche métier : problématique réaliste de marketing bancaire.
+- Lisibilité : décisions analytiques justifiées dans le notebook.
+- Reproductibilité : pipeline entièrement scripté.
+- Simplicité maîtrisée : modèles accessibles et comparables.
+- Évolutivité : structure prête pour des améliorations futures.
 
 ## Structure du projet
 
@@ -37,7 +48,7 @@ Ce projet a été conçu pour illustrer une démarche complète de data scientis
 - Les scripts d’entraînement n’ajoutent aucune transformation supplémentaire non décidée en amont.
 - Ce projet peut servir de base pour des travaux plus avancés ou être adapté à d’autres contextes métier.
 
-## Pour aller plus loin
+## Pistes d’amélioration
 
 - Optimisation des hyperparamètres (GridSearch, RandomizedSearch, etc.).
 - Sélection de features avancée, création de nouvelles variables métier.
@@ -49,5 +60,7 @@ Ce projet a été conçu pour illustrer une démarche complète de data scientis
 
 **Résumé**
 
-Ce projet montre une démarche complète et honnête : exploration des données, décisions claires sur le nettoyage et les features, automatisation des étapes dans un script reproductible, entraînement de plusieurs modèles simples, et explication des choix. L’objectif est de prouver une compréhension globale du métier de data scientist, tout en gardant le projet accessible, évolutif et facilement explicable.
+Ce projet vise à prédire l’acceptation d’une offre bancaire par un client à partir de données réelles.
+Il démontre une démarche complète de data science : compréhension du problème métier, exploration des données, automatisation du prétraitement, entraînement de plusieurs modèles de classification et évaluation des performances.
+
 
