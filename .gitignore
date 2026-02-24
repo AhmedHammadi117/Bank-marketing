@@ -1,0 +1,32 @@
+# Données
+*.csv
+data/
+01_Donnees/raw/*.csv
+01_Donnees/processed/*.csv
+
+# Résultats
+outputs/
+05_Resultats/*.pkl
+05_Resultats/*.txt
+
+# Archives (anciens fichiers)
+archives/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.ipynb_checkpoints/
+
+# Environnements
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
